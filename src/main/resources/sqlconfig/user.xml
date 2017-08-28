@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- DATE_FORMAT -->
+<!-- 时间转字符串：date_format -->
+<!-- 字符串转时间：str_to_date -->
+<!-- DATE_FORMAT(tcb.check_begin_date, '%Y-%m-%d') -->
+<!-- birthday格式：%Y-%m-%d -->
+<!-- 其他时间格式：- %Y-%m-%d %H:%i:%s -->
+<!-- date_format(createTime,'%Y-%m-%d %H:%i:%s') as -->
+<!-- createTime, -->
+<!-- str_to_date(#{uuIDExpiry,jdbcType = -->
+<!-- DATE},'%Y-%m-%d %H:%i:%s') -->
+<mapper namespace="com.yl.mapper.WxUserMapper">
+	<select id="getWxUser" resultType="com.yl.bean.WxUser"
+		parameterType="Map">
+		select
+		id,
+		openID,
+		openCode
+		from wxUser
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="openID != null and openID !=''">
+				openID = #{openID}
+			</if>
+		</trim>
+	</select>
+
+	<!-- <update id="Updateuserinfo" parameterType="com.yl.beans.Userinfo"> -->
+	<!-- update employee -->
+	<!-- <trim prefix="SET" suffixOverrides=","> -->
+	<!-- <if test="userName!=null"> -->
+	<!-- userName = #{userName}, -->
+	<!-- </if> -->
+	<!-- <if test="nickName!=null"> -->
+	<!-- nickName = #{nickName}, -->
+	<!-- </if> -->
+	<!-- <if test="headImg!=null"> -->
+	<!-- headImg = #{headImg}, -->
+	<!-- </if> -->
+	<!-- <if test="userPwd!=null"> -->
+	<!-- userPwd = #{userPwd}, -->
+	<!-- </if> -->
+	<!-- <if test="uuID!=null"> -->
+	<!-- uuID = #{uuID}, -->
+	<!-- </if> -->
+	<!-- <if test="uuIDExpiry!=null"> -->
+	<!-- uuIDExpiry =str_to_date(#{uuIDExpiry,jdbcType = -->
+	<!-- DATE},'%Y-%m-%d %H:%i:%s'),</if> -->
+	<!-- <if test="leavel!=null"> -->
+	<!-- leavel = #{leavel}, -->
+	<!-- </if> -->
+	<!-- <if test="birthday!=null"> -->
+	<!-- birthday = str_to_date(#{birthday,jdbcType = -->
+	<!-- DATE},'%Y-%m-%d'),</if> -->
+	<!-- <if test="gender!=null and gender > 0"> -->
+	<!-- gender = #{gender}, -->
+	<!-- </if> -->
+	<!-- <if test="smsCode!=null"> -->
+	<!-- smsCode = #{smsCode}, -->
+	<!-- </if> -->
+	<!-- <if test="smsPwdExpiry!=null"> -->
+	<!-- smsPwdExpiry = str_to_date(#{smsPwdExpiry,jdbcType = -->
+	<!-- DATE},'%Y-%m-%d %H:%i:%s'),</if> -->
+	<!-- <if test="loginTime!=null"> -->
+	<!-- loginTime = str_to_date(#{loginTime,jdbcType = -->
+	<!-- DATE},'%Y-%m-%d %H:%i:%s'),</if> -->
+	<!-- <if test="loginCity!=null"> -->
+	<!-- loginCity = #{loginCity}, -->
+	<!-- </if> -->
+	<!-- <if test="createTime!=null"> -->
+	<!-- createTime = str_to_date(#{createTime,jdbcType -->
+	<!-- =DATE},'%Y-%m-%d %H:%i:%s')</if> -->
+	<!-- </trim> -->
+	<!-- where id = #{id} -->
+	<!-- </update> -->
+
+	<insert id="addWxUser" parameterType="Map">
+		insert into wxUser
+		(openID,openCode,addTime )
+		values(
+		#{openID,jdbcType = VARCHAR},
+		#{openCode,jdbcType = VARCHAR},
+		str_to_date(#{addTime,jdbcType =
+		DATE},'%Y-%m-%d %H:%i:%s')
+		)
+	</insert>
+
+	<delete id="deleteWxUser" parameterType="Map">
+		delete from
+		wxUser
+		where
+		openID = #{openID}
+	</delete>
+
+
+
+
+</mapper>
