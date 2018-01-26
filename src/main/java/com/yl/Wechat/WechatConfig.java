@@ -13,26 +13,12 @@ public class WechatConfig {
 	    * 
 	    * wxa095cf3d62e9ea06  服务号2
 	    */
-	   public static final String  AppId = "wxa095cf3d62e9ea06";
+	   public static final String  AppId = "*******";
 
-	   /**
-	    * 商户账户
-	    *  1393632002  app
-	    *  1448523202  服务号1
-	    *  1473957302  服务号2
-	    */
-	   public static final String  MchId = "1473957302";
+	   public static final String  MchId = "********";
 
-	   /**
-	    * 商户秘钥  32位，在微信商户平台中设置
-	    * Z0ivPhjvCydn2sW9VjIosGaSbQ7Zkvl2   app
-	    * FhP4lRysibT1QbPQukfEPBXj8lmPyUM5  服务号支付秘钥1
-	    * f5e754310bfbd50819172c7afeff25ab   服务号秘钥
-	    * f77ac9f341c8c7178dbcf27864e70ede  服务号秘钥2
-	    *  1XIrbhRCfrd1fHJoaUvToMG74irvA7A2     
-	    *  Q1n1YhpnbrS1KHoWMUZpI4DUrGxlowIt     服务号支付秘钥2
-	    */
-	   public static final String  AppSercret = "Q1n1YhpnbrS1KHoWMUZpI4DUrGxlowIt";
+
+	   public static final String  AppSercret = "**********";
 	   /**
 	    * 查询订单地址
 	    */
