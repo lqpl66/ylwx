@@ -8,10 +8,6 @@ public class WechatConfig {
 	   public static final String  PrepayUrl = "https://api.mch.weixin.qq.com/pay/unifiedorder";
 	   /**
 	    * 商户APPID
-	    * 
-	    * wxc9e385e97966ab61  服务号1
-	    * 
-	    * wxa095cf3d62e9ea06  服务号2
 	    */
 	   public static final String  AppId = "*******";
 
